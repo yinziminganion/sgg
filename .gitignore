@@ -21,3 +21,13 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Jetbrains
+.gradle
+.idea/
+!.idea/icon*.png
+*.iml
+build/
+src/main/gen
+src/main/resources/templates.list
+src/main/resources/gitignore/*
