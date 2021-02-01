@@ -1,0 +1,2 @@
+I hpublic static void main(){}容
+这是一句中文。
