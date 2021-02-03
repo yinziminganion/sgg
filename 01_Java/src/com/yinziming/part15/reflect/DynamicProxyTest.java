@@ -44,7 +44,7 @@ class MyInvocationHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        HumanUtil util = new HumanUtil();
+        HumanUtil util = new HumanUtil();//面向切面编程(AOP)把未知的method执行前和执行后的通用操作封装为method1和method2
         util.method1();
         Object invoke = method.invoke(object, args);
         util.method2();
