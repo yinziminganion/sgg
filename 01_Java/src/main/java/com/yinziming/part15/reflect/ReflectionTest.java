@@ -88,7 +88,7 @@ public class ReflectionTest {//https://www.bilibili.com/video/BV1Kb411W75N?p=636
     }
 
     @Test
-    public void test4(){
+    public void test4() {
         //Class实例可以是哪些结构
         Class c1 = Object.class;
         Class c2 = Comparable.class;

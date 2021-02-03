@@ -1,9 +1,9 @@
 package com.yinziming.part15.reflect;
 
 /**
- *  静态代理举例
- *
- *  特点：代理类和被代理类在编译期间就确定下来了
+ * 静态代理举例
+ * <p>
+ * 特点：代理类和被代理类在编译期间就确定下来了
  */
 public class StaticProxyTest {
     public static void main(String[] args) {

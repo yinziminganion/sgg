@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import java.util.Optional;
 
 /**
- *      Optional类：为了在程序中避免出现空指针异常而创建的
- *
- *      Optional.of(T t)创建一个Optional实例，t必须非空
- *      Optional.empty()创建一个空的Optional实例
- *      Optional.ofNullable(T t)创建一个Optional实例，t可以为null
+ * Optional类：为了在程序中避免出现空指针异常而创建的
+ * <p>
+ * Optional.of(T t)创建一个Optional实例，t必须非空
+ * Optional.empty()创建一个空的Optional实例
+ * Optional.ofNullable(T t)创建一个Optional实例，t可以为null
  */
 public class OptionalTest {
     public static void main(String[] args) {

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
 
 public class UDPTest {
@@ -19,8 +18,10 @@ public class UDPTest {
         DatagramPacket packet = new DatagramPacket(bytes, 0, bytes.length, host, 65500);
         socket.send(packet);
         socket.close();
-    }@Test
-    public void receiver() throws IOException{
+    }
+
+    @Test
+    public void receiver() throws IOException {
         DatagramSocket socket = new DatagramSocket(65500);
         byte[] bytes = new byte[1024];
         DatagramPacket packet = new DatagramPacket(bytes, 0, bytes.length);

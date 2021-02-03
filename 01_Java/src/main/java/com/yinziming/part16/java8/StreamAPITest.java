@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -94,11 +93,12 @@ public class StreamAPITest {
         Integer sum = list.stream().reduce(0, Integer::sum);
         System.out.println(sum);
     }
+
     /**
-     *      collect(Collector c)将流转换成其他形式，接受一个Collector接口的实现，用于给Stream中元素做汇总的方法
+     * collect(Collector c)将流转换成其他形式，接受一个Collector接口的实现，用于给Stream中元素做汇总的方法
      */
     @Test
-    public void test6(){
+    public void test6() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         List<Integer> collect = list.stream().filter(e -> e > 5).collect(Collectors.toList());//导出成List
 //        Set<Integer> set = list.stream().filter(e -> e > 5).collect(Collectors.toSet());//导出成Set

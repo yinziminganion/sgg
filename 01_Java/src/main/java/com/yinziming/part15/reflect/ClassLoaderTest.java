@@ -2,7 +2,6 @@ package com.yinziming.part15.reflect;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

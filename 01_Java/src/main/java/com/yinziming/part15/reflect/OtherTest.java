@@ -59,11 +59,13 @@ public class OtherTest {
         Class<Dog> clazz = Dog.class;
         Package aPackage = clazz.getPackage();
         System.out.println(aPackage);
-    }@Test
-    public void testGetAnnotations(){
+    }
+
+    @Test
+    public void testGetAnnotations() {
         Class<Dog> clazz = Dog.class;
         Annotation[] annotations = clazz.getAnnotations();//获取当前运行时类声明的注解
-        for (var a:annotations){
+        for (var a : annotations) {
             System.out.println(a);
         }
 

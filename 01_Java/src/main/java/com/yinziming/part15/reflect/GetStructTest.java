@@ -107,7 +107,8 @@ class Dog extends Creature<String> implements Comparable<String>, MyInterface {
                 ", id=" + id +
                 '}';
     }
-    private static void staticMethod(){
+
+    private static void staticMethod() {
         System.out.println("staticMethod()");
     }
 }

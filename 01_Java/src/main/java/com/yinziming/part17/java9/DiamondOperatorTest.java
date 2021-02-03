@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class DiamondOperatorTest {
     @Test
-    public void test1(){
+    public void test1() {
         Comparator<String> comparator = new Comparator<>() {
             @Override
             public int compare(String o1, String o2) {
