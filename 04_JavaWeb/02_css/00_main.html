@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>00</title>
+    <!-- 写css的方式一 -->
+    <style type="text/css">
+        /*标签名选择器*/
+        div {
+            border: 1px solid red;
+            color: yellow;
+            font-size: 20px;
+        }
+
+        /*id选择器*/
+        #id1 {
+            font-size: 40px;
+        }
+
+        /*class选择器*/
+        .class1 {
+            font-size: 50px;
+        }
+
+        /*组合选择器*/
+        a, #id2, .class2 {
+
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="test.css"/><!--方式二：link引入-->
+</head>
+<body>
+<div>
+    <div>div1</div>
+    <div>div2</div>
+    <div class="class1">div3</div>
+    <span>span1</span>
+    <span>span2</span>
+    <span id="id1">span3</span></div>
+<div id="常用样式">
+    color: red;
+    border: 1px yellow solid;
+    width: 300px;
+    height:300px;
+    background-color: green;
+    font-size: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-decoration: none;
+    border-collapse: collapse;表格边框合并
+    list-style: none;去除列表前的修饰符号
+</div>
+</body>
+</html>
