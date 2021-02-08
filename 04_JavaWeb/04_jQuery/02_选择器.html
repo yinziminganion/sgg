@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>02</title>
+</head>
+<body>
+<!--
+1. 基本选择器
+#id                     根据id查找标签对象
+.class                  根据class查找标签对象
+element                 根据标签名查找标签对象
+*                       任意标签对象
+选择器1, 选择器2, ...     合并各选择器的结果
+-->
+<!--
+2. 层级选择器
+ancestor descendant     在给定ancestor选择器中递归匹配所有的descendant选择器元素
+parent > child          在给定parent中匹配child，只在parent的子元素中匹配，不会匹配parent的孙子元素
+prev + next             匹配所有*紧接*在prev元素后的next元素
+prev ~ siblings         匹配prev元素之后的所有siblings元素
+-->
+<!--
+3. 过滤选择器
+:first                  获取第一个元素
+:last                   获取最后一个元素
+:not(selector)          去除所有与给定选择器匹配的元素
+:even                   匹配所有索引值为偶数的元素，从0开始计数
+:odd                    匹配所有索引值为奇数的元素，从0开始计数
+:eq(index)              匹配一个给定索引值的元素
+:gt(index)              匹配所有大于给定索引值的元素
+:lt(index)              匹配所有小于给定索引值的元素
+:header                 匹配如h1,h2,h3之类的标题元素
+:animated               匹配所有正在执行动画效果的元素
+-->
+<!--
+4. 内容过滤器
+:contains(text)         匹配包含给定文本的元素
+:empty                  匹配所有不包含子元素或文本的空元素
+:parent                 匹配含有子元素或文本的元素
+:has(selector)          匹配含有选择器所匹配的元素的元素
+-->
+<!--
+5. 属性过滤器
+[attribute]             匹配包含给定属性的元素
+[attribute=value]       匹配给定属性是某个特定值的元素
+[attribute!=value]      匹配所有不含有指定的属性，或者属性不等于特定值的元素
+[attribute^=value]      匹配给定的属性是以某些值开始的元素
+[attribute$=value]      匹配给定的属性是以某些值结束的元素
+[attribute*=value]      匹配给定的属性是以包含某些值的元素
+[attrSel1][attrSel2]    复合属性选择器，需要同时满足多个条件时使用
+-->
+<!--
+6. 表单过滤器
+:input                  匹配所有input，textarea，select，button元素
+:text                   匹配所有文本输入框
+:password               匹配所有密码输入框
+:radio                  匹配所有单选框
+:checkbox               匹配所有复选框
+:submit                 匹配所有提交按钮
+:image
+:reset                  匹配所有重置按钮
+:button                 匹配所有按钮
+:file                   匹配所有文件域
+:hidden                 匹配所有不可见元素，或者type为hidden的元素
+:enable                 匹配所有可用元素
+:disable                匹配所有不可用元素
+:checked                匹配所有选中的被选中元素（复选框、单选框等，不包括select中的option）
+:selected               匹配所有选中的option元素
+-->
+<!--
+jQuery元素筛选
+eq()                    获取给定索引的元素
+first()                 获取第一个元素
+last()                  获取最后一个元素
+filter(exp)             留下匹配的元素
+is()                    判断是否匹配给定的选择器，只要有一个匹配就返回true
+has(exp)                返回包含有匹配选择器的元素的元素
+not(exp)                删除匹配选择器的元素
+children(exp)           返回匹配给定选择器的子元素
+find(exp)               返回匹配给定选择器的后代元素
+next()                  返回当前元素的下一个兄弟元素
+nextAll()               返回当前元素后面所有的兄弟元素
+nextUntil()             返回当前元素到指定匹配的元素为止的后面元素
+parent()                返回父元素
+prev(exp)               返回当前元素的上一个兄弟元素
+prevAll()               返回当前元素前面所有的兄弟元素
+prevUntil()             返回当前元素到指定匹配的元素为止的前面元素
+siblings(exp)           返回所有兄弟元素
+add()                   把add匹配的选择器的元素添加到当前jQuery对象中
+-->
+</body>
+</html>

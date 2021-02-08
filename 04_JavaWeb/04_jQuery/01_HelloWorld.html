@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>01</title>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            let $btnObj = $("#btnId");
+            $btnObj.click(function () {
+                alert("jQuery的单击事件");
+            });
+        })
+    </script>
+    <!--
+    jQuery核心函数
+    $是jQuery的核心函数，能完成jQuery的很多功能，$()就是调用$这个函数
+
+    1.传入参数为函数时，表示页面加载完成之后，相当于window.onload = function(){}
+    2.传入参数为html字符串时，会创建这个html标签对象
+    3.传入参数为选择器字符串时，#("#id")，#("标签名")，#(".class属性值")，根据id查询标签对象
+    4.传入参数为dom对象时，会把这个dom对象转换为jQuery对象返回
+
+    jQuery对象的本质是dom对象的数组，jQuery提供了一系列的功能函数
+
+    dom对象与jQuery对象的转换
+    dom->jQuery: var $obj = $(dom对象);
+    jQuery->dom: var dom = $obj[下标];
+    -->
+</head>
+<body>
+<button id="btnId">HelloWorld</button>
+</body>
+</html>
