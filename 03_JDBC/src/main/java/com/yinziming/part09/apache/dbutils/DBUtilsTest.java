@@ -66,8 +66,10 @@ public class DBUtilsTest {
         } finally {
             JDBCUtils.closeResources(connection);
         }
-    }@Test
-    public void testScalarHandler(){
+    }
+
+    @Test
+    public void testScalarHandler() {
         Connection connection = null;
         try {
             QueryRunner runner = new QueryRunner();
@@ -81,8 +83,10 @@ public class DBUtilsTest {
         } finally {
             JDBCUtils.closeResources(connection);
         }
-    }@Test
-    public void testMyHandler(){
+    }
+
+    @Test
+    public void testMyHandler() {
         Connection connection = null;
         try {
             QueryRunner runner = new QueryRunner();

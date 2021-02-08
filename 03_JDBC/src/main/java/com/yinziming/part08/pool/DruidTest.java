@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class DruidTest {
     @Test
-    public void getConnection(){
+    public void getConnection() {
         InputStream is = null;
         Connection connection = null;
         try {

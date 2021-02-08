@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
 
-public class CustomerDAOImpl extends BaseDAO implements CustomerDAO{
+public class CustomerDAOImpl extends BaseDAO implements CustomerDAO {
     @Override
     public void insert(Connection connection, Customers c) {
         String sql = "insert into jdbc.customers(name, email,birth)values(?,?,?)";
@@ -22,7 +22,7 @@ public class CustomerDAOImpl extends BaseDAO implements CustomerDAO{
     @Override
     public void updateById(Connection connection, Customers c) {
         String sql = "update jdbc.customers set name=?, email=?, birth=? where id=?";
-        update(connection,sql, c.getName(), c.getEmail(), c.getBirth(), c.getId());
+        update(connection, sql, c.getName(), c.getEmail(), c.getBirth(), c.getId());
     }
 
     @Override
