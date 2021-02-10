@@ -7,7 +7,7 @@
     <title>01_jsp概述</title>
 </head>
 <body>
-<jsp:forward page="9x9.jsp"></jsp:forward>
+<jsp:forward page="login.jsp"></jsp:forward>
 <%!
     //    声明类属性
     private Integer Id;
