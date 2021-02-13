@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    内部Bean-->
+    <bean id="emp" class="com.yinziming.part01.ioc.xml.Employee">
+        <property name="name" value="name1" />
+        <property name="gender" value="male"/>
+        <property name="department" >
+            <bean id="dept" class="com.yinziming.part01.ioc.xml.Department">
+                <property name="name" value="dept1"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

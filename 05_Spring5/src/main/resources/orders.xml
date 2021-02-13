@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="orders" class="com.yinziming.part01.ioc.xml.Orders" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="name" value="手机"/>
+    </bean>
+    <bean id="beanPostProcessorImpl"
+          class="com.yinziming.part01.ioc.xml.BeanPostProcessorImpl"/><!--配置后置处理器，作用于当前配置文件中的所有bean-->
+</beans>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- byName: 根据id寻找 -->
+    <!-- byType: 根据类型寻找 -->
+    <bean id="emp" class="com.yinziming.part01.ioc.xml.autowire.Employee" autowire="byName"/>
+    <bean id="department" class="com.yinziming.part01.ioc.xml.autowire.Department"/>
+</beans>
