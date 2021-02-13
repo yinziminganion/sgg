@@ -47,6 +47,11 @@
         <artifactId>mysql-connector-java</artifactId>
         <version>8.0.23</version>
     </dependency>
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.9.4</version>
+    </dependency>
 </dependencies>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
