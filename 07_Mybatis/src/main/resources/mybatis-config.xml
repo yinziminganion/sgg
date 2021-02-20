@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+    <settings>
+        <setting name="logImpl" value="log4j2"/>
+    </settings>
+    <plugins>
+        <!--<plugin interceptor="com.yinziming.part07.plugin.dao.MyFirstPlugin">
+            <property name="username" value="123456"/>
+        </plugin>-->
+        <plugin interceptor="com.yinziming.part07.plugin.dao.ParameterizePlugin"/>
+    </plugins>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!--全局配置文件，包含数据库连接池信息，事务管理器信息等，系统运行环境信息-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--注册mapper-->
+        <!--<mapper resource="part00\\EmployeeMapper.xml"/>-->
+        <package name="com.yinziming"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinziming.part02.mappers.EmployeeMapperPlus">
+    <!-- resultMap自定义结果集映射规则 -->
+    <resultMap id="EmployeeMap" type="com.yinziming.part02.mappers.Employee">
+        <id column="id" property="id"/><!-- 指定主键列的封装规则 -->
+        <result column="lastname" property="lastname"/><!-- 定义普通列封装规则，不指定的列会自动封装，最好还是都写上 -->
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+    </resultMap>
+    <select id="getById" resultMap="EmployeeMap">
+        select id, lastname, email, gender
+        from employee
+        where id = #{id}
+    </select>
+    <resultMap id="EmployeeResultMap" type="com.yinziming.part02.mappers.Employee">
+        <id column="id" property="id"/>
+        <result column="lastname" property="lastname"/>
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+        <result column="department_id" property="department.id"/>
+        <result column="department_dname" property="department.name"/>
+    </resultMap>
+    <select id="getDepartment" resultMap="EmployeeResultMap">
+        select e.id       id,
+               e.lastname lastname,
+               e.email    email,
+               e.gender   gender,
+               d.id       department_id,
+               d.name     department_dname
+        from mybatis.employee e,
+             mybatis.department d
+        where e.department_id = d.id
+          and e.id = #{id}
+    </select>
+    <resultMap id="ByStep" type="com.yinziming.part02.mappers.Employee">
+        <id column="id" property="id"/>
+        <!--使用association分步查询-->
+        <association property="department" select="com.yinziming.part02.mappers.DepartmentMapper.getById"
+                     column="department_id"/>
+    </resultMap>
+    <select id="getByIdByStep" resultMap="ByStep">
+        select *
+        from employee
+        where id = #{id}
+    </select>
+    <select id="getByDeptId" resultType="com.yinziming.part02.mappers.Employee">
+        select *
+        from employee
+        where department_id = #{deptId}
+    </select>
+    <resultMap id="Discriminator" type="com.yinziming.part02.mappers.Employee">
+        <id column="id" property="id"/>
+        <result column="lastname" property="lastname"/>
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+        <discriminator javaType="string" column="gender">
+            <case value="0">
+                <!-- 男 -->
+                <id column="id" property="id"/>
+                <result column="lastname" property="lastname"/>
+                <result column="lastname" property="email"/>
+                <result column="gender" property="gender"/>
+            </case>
+            <case value="1">
+                <!-- 女 -->
+                <association property="department" select="com.yinziming.part02.mappers.DepartmentMapper.getById"
+                             column="department_id"/>
+            </case>
+        </discriminator>
+    </resultMap>
+    <select id="getEmployByDiscriminator" resultMap="Discriminator">
+        select *
+        from employee
+        where id = #{id}
+    </select>
+</mapper>

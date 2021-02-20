@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinziming.part03.dynamic_sql.EmployeeMapperDynamicSQL">
+    <select id="getByConditionIf" resultType="com.yinziming.part03.dynamic_sql.Employee">
+        select *
+        from employee
+        <where>
+            <if test="id!= null">id=#{id}</if>
+            <if test="lastname!=null and lastname!=''">lastname like #{lastname}</if>
+            <if test="email!=null and email!=''">email=#{email}</if>
+            <if test="gender==0 or gender==1">gender=#{gender}</if>
+        </where>
+    </select>
+    <select id="getByConditionTrim" resultType="com.yinziming.part03.dynamic_sql.Employee">
+        select *
+        from employee
+        <trim>
+            <!-- prefix:整串前缀，可以写where prefixOverrides=:前缀覆盖，去掉整个字符串前面多余的字符 -->
+            <!-- suffix:整串后缀 suffixOverrides=:后缀覆盖，去掉整个字符串后面多余的字符 -->
+            <if test="id!= null">id=#{id}</if>
+            <if test="lastname!=null and lastname!=''">lastname like #{lastname}</if>
+            <if test="email!=null and email!=''">email=#{email}</if>
+            <if test="gender==0 or gender==1">gender=#{gender}</if>
+        </trim>
+    </select>
+    <select id="getByConditionChoose" resultType="com.yinziming.part03.dynamic_sql.Employee">
+        select * from employee
+        <where>
+            <choose>
+                <when test="id!=null">id=#{id}</when>
+                <when test="lastname!=null">lastname like #{lastname}</when>
+                <when test="email!=null">email=#{email}</when>
+                <otherwise>gender=1</otherwise>
+            </choose>
+        </where>
+    </select>
+    <select id="autoUpdateEmployee">
+        update employee
+        <set>
+            <if test="lastname!=null">lastname = #{lastname}</if>
+            <if test="email!=null">email = #{email}</if>
+            <if test="gender!=null">gender = #{gender}</if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </select>
+    <select id="getForEach" resultType="com.yinziming.part03.dynamic_sql.Employee">
+        select *
+        from employee
+        where id in
+        <foreach collection="list" item="item_id" separator="," open="(" close=")">
+            #{item_id}
+        </foreach>
+    </select>
+    <insert id="addForEach">
+        insert into employee (lastname, email, gender, department_id)
+        values
+        <foreach collection="list" item="e" separator=",">
+            (#{e.lastname}, #{e.email}, #{e.gender}, #{e.department.id})
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinziming.part04.cache.EmployeeMapper">
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <!--sql映射文件，保存了每一条sql语句的映射信息-->
+    <select id="getById" resultType="com.yinziming.part04.cache.Employee">
+        select id id, lastname lastname, email email, gender gender
+        from employee
+        where id = #{id}
+    </select>
+    <insert id="add" parameterType="com.yinziming.part04.cache.Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into employee(lastname, gender, email)
+        values (#{lastname}, #{gender}, #{email})
+    </insert>
+    <update id="update">
+        update employee
+        set lastname=#{lastname},
+            gender=#{gender},
+            email=#{email}
+        where id = #{id}
+    </update>
+    <delete id="deleteById">
+        delete
+        from employee
+        where id = #{id}
+    </delete>
+    <select id="getAll" resultType="com.yinziming.part04.cache.Employee"><!--resultType依然写元素的类型，而不是列表-->
+        select *
+        from employee
+    </select>
+    <select id="getMap" resultType="map">
+        select *
+        from employee
+        where id = #{id}
+    </select>
+    <select id="getMapAll" resultType="com.yinziming.part04.cache.Employee">
+        select *
+        from employee;
+    </select>
+</mapper>
