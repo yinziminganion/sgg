@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <style type="text/css">
+        .div{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .table{
+            border: 1px;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <table id="table">
+        <tr>
+            <th>url</th>
+            <th>次数</th>
+        </tr>
+        <tr th:each="count : ${counts}">
+            <td th:text="${count.url}">Onions</td>
+            <td th:text="${count.count}">2.41</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
